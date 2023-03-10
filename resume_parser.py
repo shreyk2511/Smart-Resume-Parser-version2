@@ -18,6 +18,7 @@ class ResumeParser(object):
         custom_regex=None
     ):
         nlp = spacy.load('en_core_web_sm')
+        nlp.to_disk('model')
         custom_nlp = spacy.load('model')
         self.__skills_file = skills_file
         self.__custom_regex = custom_regex
