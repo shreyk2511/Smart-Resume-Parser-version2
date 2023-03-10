@@ -2,7 +2,7 @@ docx2txt==0.8
 nltk==3.8.1
 numpy==1.24.1
 pandas==1.5.2
-pdfminer.six==20181108
+pdfminer.six==20191110
 requests==2.28.2
 spacy==2.3.9
 textract==1.6.5
