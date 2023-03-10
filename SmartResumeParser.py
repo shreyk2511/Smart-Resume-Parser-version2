@@ -9,7 +9,7 @@ import os
 import streamlit as st
 import openai
 from streamlit_chat import message
-import resume_parser
+from resume_parser import ResumeParser
 import re
 import emoji
 from io import BytesIO
@@ -77,7 +77,7 @@ def page2():
                     with open(resume.name, "wb") as f:
                         f.write(resume.getbuffer())
                     # Parse the resume and display the extracted data
-                    data = resume_parser.ResumeParser(resume.name).get_extracted_data()
+                    data = ResumeParser(resume.name).get_extracted_data()
                     all_data.append(data)
                 else:
                     image = Image.open(resume)
