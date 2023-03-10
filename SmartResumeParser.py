@@ -87,7 +87,7 @@ def page2():
                     document.add_paragraph(text)
                     document.save("document.docx")
                     document = "document.docx"
-                    data = resume_parser.ResumeParser(document).get_extracted_data()
+                    data = ResumeParser(document).get_extracted_data()
                     all_data.append(data)
             df = pd.DataFrame(all_data, columns=['name', 'email', 'mobile_number', 'skills', 'degree', 'experience',
                                                  'company_names'])
