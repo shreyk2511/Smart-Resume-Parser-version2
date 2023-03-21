@@ -13,6 +13,7 @@ from resume_parser import ResumeParser
 import re
 import emoji
 from io import BytesIO
+from pdf2docx import Converter
 
 
 nlp = spacy.load("en_core_web_sm")
@@ -76,8 +77,17 @@ def page2():
                                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]:
                     with open(resume.name, "wb") as f:
                         f.write(resume.getbuffer())
+                    if resume.type == "application/pdf":
+                        # Convert PDF to DOCX
+                        docx_file = resume.name.split(".")[0] + ".docx"
+                        cv = Converter(resume.name)
+                        cv.convert(docx_file, start=0, end=None)
+                        cv.close()
+                    else:
+                        docx_file = resume.name
+
                     # Parse the resume and display the extracted data
-                    data = ResumeParser(resume.name).get_extracted_data()
+                    data = ResumeParser(docx_file).get_extracted_data()
                     all_data.append(data)
                 else:
                     image = Image.open(resume)
