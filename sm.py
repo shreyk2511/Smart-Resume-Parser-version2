@@ -70,7 +70,7 @@ def page2():
     def main():
         resumes = st.file_uploader("Upload your Resumes and Images", type=["pdf", "docx", "jpg", 'jpeg'],
                                    accept_multiple_files=True)
-                if resumes is not None:
+        if resumes is not None:
             all_data = []
             for resume in resumes:
                 if resume.type in ["application/pdf",
