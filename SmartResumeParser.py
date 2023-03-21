@@ -13,7 +13,6 @@ from resume_parser import ResumeParser
 import re
 import emoji
 from io import BytesIO
-from pdf2docx import Converter
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -69,6 +68,7 @@ def page2():
     def main():
         resumes = st.file_uploader("Upload your Resumes and Images", type=["pdf", "docx", "jpg", 'jpeg'],
                                    accept_multiple_files=True)
+        from pdf2docx import Converter
 
         if resumes is not None:
             all_data = []
