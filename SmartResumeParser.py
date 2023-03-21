@@ -15,7 +15,6 @@ import emoji
 from io import BytesIO
 from pdf2docx import Converter
 
-
 nlp = spacy.load("en_core_web_sm")
 
 
@@ -70,7 +69,8 @@ def page2():
     def main():
         resumes = st.file_uploader("Upload your Resumes and Images", type=["pdf", "docx", "jpg", 'jpeg'],
                                    accept_multiple_files=True)
-                if resumes is not None:
+
+        if resumes is not None:
             all_data = []
             for resume in resumes:
                 if resume.type in ["application/pdf",
@@ -126,30 +126,32 @@ def page2():
                                 buffer.seek(0)
                                 data = buffer.getvalue()
                                 st.download_button(label="Download CSV File", data=data, file_name=selected_file)
-                            #df.to_csv(selected_file, mode='a', header=False, index=False)
-                            #st.write("Resume added to existing CSV file")                    
+                            # df.to_csv(selected_file, mode='a', header=False, index=False)
+                            # st.write("Resume added to existing CSV file")
                     elif add_to_existing == "Create new":
                         new_csv_name = st.text_input("Enter the name of the new CSV file with the extension ")
                         csv_path = os.path.join(".", new_csv_name)
                         if not os.path.exists(csv_path):
                             with open(csv_path, "w") as f:
-                               df.to_csv(f, index=False) 
-                               csv_bytes = csv.encode()
-                               st.download_button(label="Download CSV File", data=BytesIO(csv_bytes), file_name=new_csv_name)
-                               
+                                df.to_csv(f, index=False)
+                                csv_bytes = csv.encode()
+                                st.download_button(label="Download CSV File", data=BytesIO(csv_bytes),
+                                                   file_name=new_csv_name)
+
                         else:
                             st.warning("Enter the valid name of the new CSV file.")
                 else:
-                    df.to_csv("oryx.csv",index=False)
+                    df.to_csv("oryx.csv", index=False)
                     csv_bytes = csv.encode()
                     st.download_button(label="Download CSV File", data=BytesIO(csv_bytes), file_name="oryx.csv")
-                    
+
             st.write(df)
 
             # ...
 
     if __name__ == '__main__':
         main()
+
 
 def page3():
     # set OpenAI API key
@@ -274,3 +276,4 @@ page_names_to_funcs = {
 
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
 page_names_to_funcs[selected_page]()
+
