@@ -17,3 +17,4 @@ streamlit_chat==0.0.2.1
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
 python-docx==0.8.11
 emoji==2.2.0
+pdf2docx==0.5.6
