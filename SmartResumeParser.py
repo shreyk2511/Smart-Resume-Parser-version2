@@ -25,7 +25,7 @@ def main_page():
     st.markdown("""
 
 
-At ("#Company Name"), we're passionate about using technology to solve complex business problems. Our team of experts 
+At ORYX Information Technology, we're passionate about using technology to solve complex business problems. Our team of experts 
 is dedicated to helping organizations of all sizes transform their operations and achieve their goals.
 
 We offer a wide range of IT services, including software development,Data Science, system integration, 
@@ -37,8 +37,7 @@ high-quality results that exceed our clients' expectations. Our team is constant
 ahead of the curve, and we're always on the lookout for new ways to innovate and improve.
 
 We're proud to have a track record of success and to have helped many organizations achieve their IT goals. If you're 
-looking for a trusted partner to help you navigate the ever-changing world of technology, look no further than (
-"#Company Name").""")
+looking for a trusted partner to help you navigate the ever-changing world of technology, look no further than (ORYX Information Technology).""")
 
 
 def page2():
@@ -153,7 +152,7 @@ def page2():
 
 def page3():
     # set OpenAI API key
-    openai.api_key = "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"
+    openai.api_key = "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"
 
     welcome_message = '''
                 <div style="background-color: #8A2BE2; color: #FFFFFF; padding: 20px; border-radius: 10px; text-align: center;">
