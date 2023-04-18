@@ -20,7 +20,7 @@ nlp = spacy.load("en_core_web_sm")
 
 
 def main_page():
-    st.title("ORYX INFORMATION TECHNOLOGIES")
+    st.title(" About Us")
     st.subheader(" About Us")
     st.markdown("""
 
